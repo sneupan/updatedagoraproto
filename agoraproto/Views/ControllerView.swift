@@ -29,7 +29,6 @@ class ControllerView: UIViewController, UITableViewDataSource {
                 print("Error fetching data: \(error)")
                 return
             }
-
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                 print("Error: Invalid HTTP response")
                 return

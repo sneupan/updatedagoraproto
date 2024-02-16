@@ -34,6 +34,7 @@ struct ActivitySeatCount: Codable {
     let available: Int
 }
 
+
 struct Event: Codable {
     let name: String
     let descr: Description
@@ -44,11 +45,14 @@ struct Event: Codable {
     let roomId: String
 }
 
+
+>>>>>>> origin/sascalendar
 struct Description: Codable {
     let plain: String
     let formatted: String
 }
 
+<<<<<<< HEAD
 struct CalendarEvent {
     let summary: String
     let location: String
@@ -141,3 +145,18 @@ class APICall {
                task.resume()
            }
        }
+
+
+
+func performAPICall() async throws -> [TopLevelObject] {
+    guard let url = URL(string: "http://localhost:8080/waitlist/waitlistactivityofferings?personId=90000003&termId=kuali.atp.FA2023-2024") else {
+        throw URLError(.badURL)
+    }
+
+    let (data, response) = try await URLSession.shared.data(from: url)
+    guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+        throw URLError(.badServerResponse)
+    }
+    return try JSONDecoder().decode([TopLevelObject].self, from: data)
+}
+

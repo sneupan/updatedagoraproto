@@ -5,6 +5,7 @@
 //  Created by Saskriti Neupane  on 8/1/23.
 //
 
+
 import SwiftUI
 import GoogleSignIn
 import GoogleSignInSwift
@@ -15,10 +16,11 @@ struct GoogleSignInResultModel {
     let accessToken: String
 }
 
+
 final class SignInGoogleHelper {
     @MainActor
     func signIn() async throws -> GoogleSignInResultModel {
-        guard let topVC = Utilities.shared.topViewController() else{
+        guard let topVC = Utilities.shared.topViewController() else {
             throw URLError(.cannotFindHost)
         }
         let gidSignInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVC)
@@ -26,13 +28,10 @@ final class SignInGoogleHelper {
             throw URLError(.badServerResponse)
         }
         let accessToken = gidSignInResult.user.accessToken.tokenString
-        
-        let tokens = GoogleSignInResultModel(idToken: idToken, accessToken: accessToken)
-        
-        return tokens
-    }
-    
-    
-}
 
+        print("Access Token: \(accessToken)")
+
+        return GoogleSignInResultModel(idToken: idToken, accessToken: accessToken)
+    }
+}
 

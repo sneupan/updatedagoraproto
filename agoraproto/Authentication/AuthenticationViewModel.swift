@@ -7,13 +7,19 @@
 
 import Foundation
 
+
 @MainActor
 final class AuthenticationViewModel: ObservableObject {
-        
-    func signInGoogle() async throws {
+    
+    func signInGoogle() async -> Bool {
         let helper = SignInGoogleHelper()
-        let tokens = try await helper.signIn()
-        let authDataResult = try await AuthenticationManager.shared.signInWithGoogle(tokens: tokens)
+        do {
+            let tokens = try await helper.signIn()
+            let _ = try await AuthenticationManager.shared.signInWithGoogle(tokens: tokens)
+            return true  // Sign-in was successful
+        } catch {
+            print(error)
+            return false  // Sign-in failed
+        }
     }
-
 }

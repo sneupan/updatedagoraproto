@@ -10,11 +10,16 @@ import MapKit
 
 struct HomeView: View {
     @StateObject private var viewModel = HomeViewViewModel()
-    @Binding var showSignInView: Bool
+    @Binding var isUserAuthenticated: Bool
     
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
+                if let userName = AuthenticationManager.shared.getAuthenticatedUserDisplayName() {
+                    Text("Welcome, \(userName)")
+                        .font(.title)
+                }
+    
                 SearchBar(text: $viewModel.searchText, onSearch: { viewModel.handleSearch { } })
                     .padding(.horizontal)
                     .padding(.top, 50)
@@ -48,11 +53,12 @@ struct HomeView: View {
                    HStack {
                        Spacer()
 
-                       TabBarButton(destination: HomeView(showSignInView: .constant(false)), imageName: "house.fill", label: "Home")
+                      TabBarButton(destination: HomeView(isUserAuthenticated: $isUserAuthenticated), imageName: "house.fill", label: "Home")
                        TabBarButton(destination: ResourceView(), imageName: "book.fill", label: "Resource")
                        TabBarButton(destination: AcademicsView(), imageName: "pencil.and.outline", label: "Study")
                        TabBarButton(destination: DiningView(), imageName: "utensils", label: "Dine")
                        TabBarButton(destination: TechnologyView(), imageName: "gear", label: "Tech")
+                       TabBarButton(destination: ContentView(isUserAuthenticated: $isUserAuthenticated), imageName: "gear", label: "Content")
 
                        Spacer()
                    }
@@ -97,7 +103,7 @@ struct SearchBar: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(showSignInView: .constant(false))
+        HomeView(isUserAuthenticated: .constant(false))
     }
 }
 

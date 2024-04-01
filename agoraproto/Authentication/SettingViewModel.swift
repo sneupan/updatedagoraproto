@@ -8,7 +8,7 @@
 import Foundation
 
 
-//interacts with the AuthenticationManager to perform various authentication-related operations, such as loading authentication providers, loading the authenticated user, signing out, resetting the password, updating the email, and updating the password
+//loading the authenticated user, signing out, resetting the password, updating the email, and updating the password
 
 @MainActor
 final class SettingViewModel: ObservableObject {

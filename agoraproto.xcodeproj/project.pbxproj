@@ -31,7 +31,6 @@
 		DA6FAADA2B6C494400269052 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FAAD92B6C494400269052 /* APICall.swift */; };
 		DA73BCB72A6EC904000B010E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA73BCB62A6EC904000B010E /* Utilities.swift */; };
 		DA73BCBE2A6EFB98000B010E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DA73BCBD2A6EFB98000B010E /* FirebaseAuth */; };
-		DA7FC6F82A796A9F0072433F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FC6F72A796A9F0072433F /* RootView.swift */; };
 		DA7FC6FA2A796AD80072433F /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FC6F92A796AD80072433F /* AuthenticationView.swift */; };
 		DA7FC6FC2A796B390072433F /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FC6FB2A796B390072433F /* AuthenticationViewModel.swift */; };
 		DA7FC6FE2A796B530072433F /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7FC6FD2A796B530072433F /* SettingView.swift */; };
@@ -77,7 +76,6 @@
 		DA6FAAD72B6C492400269052 /* ControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerView.swift; sourceTree = "<group>"; };
 		DA6FAAD92B6C494400269052 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		DA73BCB62A6EC904000B010E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		DA7FC6F72A796A9F0072433F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		DA7FC6F92A796AD80072433F /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		DA7FC6FB2A796B390072433F /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		DA7FC6FD2A796B530072433F /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 			children = (
 				DA245A692A78064D00DB5763 /* HomeView.swift */,
 				DA7FC7052A796BD50072433F /* HomeViewViewModel.swift */,
-				DA7FC6F72A796A9F0072433F /* RootView.swift */,
 				DA7FC6F92A796AD80072433F /* AuthenticationView.swift */,
 				DA7FC6FB2A796B390072433F /* AuthenticationViewModel.swift */,
 				DA7FC6FD2A796B530072433F /* SettingView.swift */,
@@ -362,7 +359,6 @@
 				DA0DB6182A6E26CF00B631FE /* ContentViewViewModel.swift in Sources */,
 				DA7FC6FE2A796B530072433F /* SettingView.swift in Sources */,
 				DA7FC6FC2A796B390072433F /* AuthenticationViewModel.swift in Sources */,
-				DA7FC6F82A796A9F0072433F /* RootView.swift in Sources */,
 				DA0DB61E2A6E279700B631FE /* DiningViewModel.swift in Sources */,
 				DA0DB6262A6E27F000B631FE /* DiningViewViewModel.swift in Sources */,
 				DA73BCB72A6EC904000B010E /* Utilities.swift in Sources */,

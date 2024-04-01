@@ -35,10 +35,15 @@ final class AuthenticationManager {
     
     static let shared = AuthenticationManager()
     private init() {}
+    var googleAccessToken: String?
+    
+    func getAuthenticatedUserDisplayName() -> String? {
+        return Auth.auth().currentUser?.displayName
+    }
     
     func getAuthenticatedUser() throws -> authDataResultModel {
         guard let user = Auth.auth().currentUser else {
-            throw URLError(.badServerResponse)
+            throw URLError(.badServerResponse)  // User is not authenticated
         }
         return authDataResultModel(user: user)
     }
@@ -61,22 +66,22 @@ final class AuthenticationManager {
     func signOut() throws {
         try Auth.auth().signOut()
     }
-
 }
 
-
 // mark: Sign in SSO
+
 extension AuthenticationManager {
     @discardableResult
-    
     func signInWithGoogle(tokens: GoogleSignInResultModel) async throws -> authDataResultModel {
         let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
+        self.googleAccessToken = tokens.accessToken  // Store the access token
+        print("AuthenticationManager - Stored Access Token: \(String(describing: self.googleAccessToken))")
         return try await signIn(credential: credential)
+        
     }
+
     func signIn(credential: AuthCredential) async throws -> authDataResultModel {
         let authDataResult = try await Auth.auth().signIn(with: credential)
         return authDataResultModel(user: authDataResult.user)
     }
-    
-    
 }

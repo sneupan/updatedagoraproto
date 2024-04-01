@@ -126,8 +126,8 @@ struct DiningView: View {
 
                     // Horizontal Scroll View with Navigation Links
                     HStack(spacing: 0) {
-                        NavigationLink(destination:  HomeView(showSignInView: .constant(false))) {
-                            TabBarButton(destination:  HomeView(showSignInView: .constant(false)), imageName: "house.fill", label: "Home")
+                        NavigationLink(destination:  HomeView(isUserAuthenticated: .constant(false))) {
+                            TabBarButton(destination:  HomeView(isUserAuthenticated: .constant(false)), imageName: "house.fill", label: "Home")
                         }
                         .frame(maxWidth: .infinity)
                         .foregroundColor(.white)

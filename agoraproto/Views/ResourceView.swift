@@ -25,7 +25,7 @@ struct ResourceView: View {
                     .frame(maxWidth: .infinity)
                 ScrollView(.horizontal, showsIndicators: true) {
                     HStack(spacing: 16) {
-                        NavigationLink(destination:  HomeView(showSignInView: .constant(false))) {
+                        NavigationLink(destination:  HomeView(isUserAuthenticated: .constant(false))) {
                             Text("Home")
                                 .foregroundColor(.white)
                                 .padding(.vertical, 8)

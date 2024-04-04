@@ -23,7 +23,7 @@ struct AcademicsView: View {
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack(spacing: 16) {
-                            TabBarButton(destination:  HomeView(showSignInView: .constant(false)), imageName: "house.fill", label: "Home")
+                            TabBarButton(destination:  HomeView(isUserAuthenticated: .constant(false)), imageName: "house.fill", label: "Home")
                             TabBarButton(destination: ResourceView(), imageName: "book.fill", label: "Resource")
                             TabBarButton(destination: AcademicsView(), imageName: "pencil.and.outline", label: "Study")
                             TabBarButton(destination: DiningView(), imageName: "utensils", label: "Dine")

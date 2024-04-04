@@ -5,7 +5,6 @@
 //  Created by Saskriti Neupane  on 2/1/24.
 //
 
-
 import UIKit
 
 class ControllerView: UIViewController, UITableViewDataSource {
@@ -24,15 +23,11 @@ class ControllerView: UIViewController, UITableViewDataSource {
             return
         }
 
-
-
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             if let error = error {
                 print("Error fetching data: \(error)")
                 return
             }
-
-
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                 print("Error: Invalid HTTP response")
                 return
@@ -42,7 +37,6 @@ class ControllerView: UIViewController, UITableViewDataSource {
                 print("Error: No data received")
                 return
             }
-
 
             do {
                 let decoder = JSONDecoder()
